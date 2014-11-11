@@ -8,22 +8,36 @@
  */
 
 var React = require('react');
-var Router = require('react-router');
-var Routes = Router.Routes;
-var Route = Router.Route;
+var Router = require('react-router'),
+	Routes = Router.Routes,
+	Route = Router.Route,
+	DefaultRoute = Router.DefaultRoute;
 
-var NavTabApp = require('./components/NavTab.react');
+var NavTabs = require('./components/Nav.react'),
+  Index = require('./components/TabIndex.react'),
+  Group = require('./components/TabGroup.react'),
+  Forum = require('./components/TabForum.react'),
+  My = require('./components/TabMy.react'),
+
+  AddCar = require('./components/AddCar.react');
 
 var routes = (
   <Routes>
-    <Route handler={NavTabApp}>
-      <Route name="image" path=":service" handler={Image} addHandlerKey={true} />
+    <Route name="navtabs" path="/" handler={NavTabs}>
+      <Route name="index" handler={Index}></Route>
+      <Route name="group" handler={Group}></Route>
+      <Route name="forum" handler={Forum}></Route>
+      <Route name="my" handler={My}></Route>
+      <DefaultRoute handler={Index}/>
     </Route>
+
+    <Route name="addcar" path="/addcar" handler={AddCar} />
+  
   </Routes>
 );
 
 React.initializeTouchEvents(true);
 React.renderComponent(
   routes,
-  document.getElementById('app-navtab')
+  document.body
 );

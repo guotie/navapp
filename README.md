@@ -5,7 +5,7 @@ a navtab example, use react & react-router, ratchet
 
 # build issues
 
-watchify -o js/bundle.js -v -d .
+	watchify -o js/bundle.js -v -d .
 
 当使用watchify编译项目时，watchify依赖package.json的配置，必须配置
 

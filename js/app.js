@@ -19,7 +19,9 @@ var NavTabs = require('./components/Nav.react'),
   Forum = require('./components/TabForum.react'),
   My = require('./components/TabMy.react'),
 
-  AddCar = require('./components/AddCar.react');
+  AddCar = require('./components/AddCar.react'),
+  ChooseCarBrand = require('./components/chooseCarBrand.react'),
+  ChooseCarType = require('./components/ChooseCarType.react');
 
 var routes = (
   <Routes>
@@ -31,7 +33,12 @@ var routes = (
       <DefaultRoute handler={Index}/>
     </Route>
 
-    <Route name="addcar" path="/addcar" handler={AddCar} />
+    <Route name="addCar" path="/addcar" handler={AddCar}>
+      <Route name="carBrand" handler={ChooseCarBrand}>
+        <Route name="carType" path=":carType" handler={ChooseCarType} />
+        <DefaultRoute handler={ChooseCarBrand}/>
+      </Route>
+    </Route>
   
   </Routes>
 );

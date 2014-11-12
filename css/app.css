@@ -1,0 +1,19 @@
+/*!
+ * =====================================================
+ * app v0.0.2
+ * Copyright 2014 axon
+ *
+ * designed by @guotie.
+ * =====================================================
+ */
+ .line-row {
+ 	width: 100%;
+ 	height: auto;
+ }
+
+.row-block-50 {
+	width: 50%;
+	height: 100px;
+	background: #999;
+	display: inline-block;
+}

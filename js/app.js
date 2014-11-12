@@ -30,16 +30,15 @@ var routes = (
       <Route name="group" handler={Group}></Route>
       <Route name="forum" handler={Forum}></Route>
       <Route name="my" handler={My}></Route>
+
       <DefaultRoute handler={Index}/>
     </Route>
 
     <Route name="addCar" path="/addcar" handler={AddCar}>
-      <Route name="carBrand" handler={ChooseCarBrand}>
-        <Route name="carType" path=":carType" handler={ChooseCarType} />
-        <DefaultRoute handler={ChooseCarBrand}/>
-      </Route>
     </Route>
-  
+    <Route name="carBrand" path="/addcar/carBrand" handler={ChooseCarBrand}>
+    </Route>
+
   </Routes>
 );
 

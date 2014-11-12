@@ -24,7 +24,6 @@ var AddCar = React.createClass({
 	},
 
 	render: function() {
-		console.log('add car ...')
 		return (
 		<div>
 			<header className="bar bar-nav">

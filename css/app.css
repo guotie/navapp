@@ -17,3 +17,10 @@
 	background: #999;
 	display: inline-block;
 }
+
+.brand-segment {
+	font-size: 16px;
+	padding-left: 10px;
+	color: black;
+	background-color: #bbb;
+}

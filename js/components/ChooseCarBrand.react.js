@@ -7,17 +7,23 @@
  */
 var React = require('react'),
 	Router = require('react-router'),
+	Link = Router.Link,
 	Navigation = Router.Navigation;
-var carBrands = require('../constants/CarbrandConstants');
+var carBrands = require('../constants/CarbrandConstants'),
+	NewCarActions = require('../actions/NewCarActions');
 
 var CarBrandItem = React.createClass({
+	_onClick: function(e) {
+		NewCarActions.updateBrand(this.props.carBrand.name, this.props.carBrand.image, this.props.carBrand.no)
+	},
 	render: function() {
 		return (
 		 <li className="table-view-cell media">
-		    <a className="navigate-right">
+		    <Link to="carType" params={{carBrand: this.props.carBrand.no+"-"+this.props.carBrand.name}}
+		     className="navigate-right" onClick={this._onClick}>
 		      <span className="media-object pull-left icon-pages"></span>
 		      <div className="media-body">{this.props.carBrand.name}</div>
-		    </a>
+		    </Link>
 		  </li>
 		)
 	}

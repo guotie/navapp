@@ -14,12 +14,12 @@ var _tabs = [
  },
  {
   slug: "group",
-  name: "订单", 
+  name: "养车", 
   icon: "icon icon-list"
  },
  {
   slug: "forum",
-  name: "论坛", 
+  name: "车友", 
   icon: "icon icon-star-filled"
  },
  {

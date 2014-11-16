@@ -6,11 +6,38 @@
  *
  */
 var React = require('react'),
-	Router = require('react-router'),
+	utils = require('../utils/utils'),
+	CarStore = require('../stores/CarStore');
+
+var Router = require('react-router'),
 	Link = Router.Link;
 
+/**
+ *	@TabIndex
+ *
+ *
+ */
 var TabIndex = React.createClass({
+	getInitialState: function() {
+		return {
+			cars: CarStore.getAll()
+		}
+	},
 	render: function() {
+		var cars, defCar;
+
+		console.log(this.state.cars)
+		if (utils.sizeOf(this.state.cars)) {
+			defCar = CarStore.getDefault()
+			console.log(defCar)
+			cars = <div className="row-block-50">
+					<Link to="listCar">{defCar.carNo}</Link>
+					</div>
+		} else {
+			cars = <div className="row-block-50">
+					<Link to="addCar">添加车辆信息</Link>
+				</div>
+		}
 		return (
 		<div>
 		<header className="bar bar-nav">
@@ -21,9 +48,7 @@ var TabIndex = React.createClass({
 				<div className="row-block-50">
 					<Link to="my">我的</Link>
 				</div>
-				<div className="row-block-50">
-					<Link to="addCar">添加车辆信息</Link>
-				</div>
+				{cars}
 			</div>
 		</div>
 		</div>
